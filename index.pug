@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Azmi Makarima Y
+    link(rel="stylesheet", href="assets/css/main.css")
+  body
+    section#sidebar
+      .inner
+        nav
+          ul
+            li
+              a(href="#about") About me
+            li
+              a(href="#projects") Projects
+            li
+              a(href="#contacts") Get in touch
+
+    #wrapper
+      section#about.wrapper.style1.fullscreen.fade-up
+        .inner
+          h1 Azmi Makarima Y
+          p A web developer specializes in back end that still trying to wrap his head around DevOps
+          ul.actions
+            li
+              a.button.scrolly(href="#projects") Learn more
+
+      section#projects.wrapper.style2.spotlights
+        each project in projects
+          section
+            a.image(href="#!")
+              img(src=`images/${project.image.hash}${project.image.ext}`, alt="", data-position="center center")
+            .content
+              .inner
+                h2= project.name
+                p= project.description
+                ul.actions
+                  each url in project.urls
+                    li
+                      a.button(href=url.url, target="_blank")= url.label
+
+      section#contacts.wrapper.style1.fade-up
+        .inner
+          h2 Get in touch
+          p
+            | Interested on me? or have something to say?
+            br
+            |  Contact me using the information below
+          .split.style1
+            section
+              form#form(method='post', action='#')
+                .field.half.first
+                  label(for='name') Name
+                  input#name(type='text', name='name')
+                .field.half
+                  label(for='email') Email
+                  input#email(type='text', name='email')
+                .field
+                  label(for='message') Message
+                  textarea#message(name='message', rows='5')
+                ul.actions
+                  li
+                    button.button.submit(href='#!') Send Message
+            section
+              ul.contact
+                li
+                  h3 Address
+                  span
+                    | Malang, Jawa Timur
+                    br
+                    |  Indonesia
+                li
+                  h3 Email
+                  a(href='mailto:amy@amyis.moe') amy@amyis.moe
+                li
+                  h3 Social
+                  ul.icons
+                    li
+                      a.fa-github(href='https://github.com/amyisme13')
+                        span.label GitHub
+                    li
+                      a.fa-facebook(href='https://fb.com/amy.azmim')
+                        span.label Facebook
+                    li
+                      a.fa-twitter(href='https://twitter.com/BFwithAmy')
+                        span.label Twitter
+                    //- li
+                    //-   a.fa-instagram(href='#')
+                    //-     span.label Instagram
+                    //- li
+                    //-   a.fa-linkedin(href='#')
+                    //-     span.label LinkedIn
+
+    footer#footer.wrapper.style1-alt
+      .inner
+        ul.menu
+          // <li>&copy; . All rights reserved.</li>
+          li
+            | Design by&nbsp;
+            a(href='http://html5up.net') HTML5 UP
+
+    script(src='assets/js/jquery.min.js')
+    script(src='assets/js/jquery.scrollex.min.js')
+    script(src='assets/js/jquery.scrolly.min.js')
+    script(src='assets/js/skel.min.js')
+    script(src='assets/js/util.js')
+    script(src='assets/js/main.js')
+    script.
+      $(document).ready(function () {
+        $('#form').submit(function (e) {
+          e.preventDefault();
+
+          $.post(
+            'https://script.google.com/macros/s/AKfycbyM10pL2PwE9QXoVDyH9PemrqXe5_8j0jasSQYF3Yk3B84G9uk/exec',
+            {
+              name: $('#name').val(),
+              email: $('#email').val(),
+              message: $('#message').val()
+            },
+            function (data) {
+              if (data.result === 'success') {
+                $('#form').trigger('reset');
+              } else {
+                alert('Something went wrong while sending your message');
+              }
+            }
+          );
+        });
+      });

@@ -1,0 +1,24 @@
+{
+  "name": "amyis.moe",
+  "version": "1.0.0",
+  "description": "Personal website",
+  "main": "index.js",
+  "scripts": {
+    "generate": "node index"
+  },
+  "repository": "https://github.com/amyisme13/amyis.moe",
+  "author": "Azmi Makarima <amy.azmim@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.2.0",
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint": "4.19.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-import": "2.12.0",
+    "eslint-plugin-prettier": "2.6.0",
+    "prettier": "1.13.7"
+  }
+}
